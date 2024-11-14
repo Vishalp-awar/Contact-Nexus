@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en"
     th:fragment="base(content)"
+      class="dark"
 >
 <head>
     <meta charset="UTF-8">
@@ -15,6 +16,9 @@
 </head>
 <body>
 
+    <div data-th-replace="navbar :: navbar">
+
+    </div>
 
     <section  data-th-replace="${content}"></section>
 

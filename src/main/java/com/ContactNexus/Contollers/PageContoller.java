@@ -34,4 +34,18 @@ public class PageContoller {
     public String servicePage(){
         return "services";
     }
+
+    @RequestMapping("/Login")
+    public String LoginPage(){
+        return "Login";
+    }
+
+    @RequestMapping("/Register")
+    public String SignupPage(){
+        return "Register";
+    }
+    @RequestMapping("/contactus")
+    public String ContactusPage(){
+        return "contactus";
+    }
 }

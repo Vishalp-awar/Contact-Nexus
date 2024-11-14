@@ -1,24 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" th:replace="~{parent :: base(~{::#content})}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home Page</title>
-    <link rel="stylesheet" data-th-href="@{/css/output.css}">
-
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-
 </head>
 <body>
-<div>
-<h1  class=" text-center text-3xl">Welcome to Contact Nexus
-    Welcome to the Home Page!<br>
-
-</h1>
-<p1 data-th-text="${name}">
-    Hello, ${name}!
-</p1>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+<section id="content">
+    <article>THIS is Home Page</article>
+</section>
 </body>
 </html>
