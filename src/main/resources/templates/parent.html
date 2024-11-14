@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"
+    th:fragment="base(content)"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Parent Page</title>
+<!--  link for tailwind  -->
+    <link rel="stylesheet" data-th-href="@{/css/output.css}">
+
+<!--   link for flowbite compoenets-->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+
+    <section  data-th-replace="${content}"></section>
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+</body>
+
+</html>
