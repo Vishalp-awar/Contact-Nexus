@@ -1,6 +1,7 @@
 package com.ContactNexus.Services.Implementation;
 
 import com.ContactNexus.Entities.User;
+import com.ContactNexus.Helper.AppConstants;
 import com.ContactNexus.Helper.ResourceNotFoundException;
 import com.ContactNexus.Repositories.UserRepositories;
 import com.ContactNexus.Services.UserService;
@@ -8,6 +9,7 @@ import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +23,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepositories userRepositories;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
@@ -28,6 +33,8 @@ public class UserServiceImpl implements UserService {
 
         String userId = UUID.randomUUID().toString();
         user.setUserId(userId);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoleList(List.of(AppConstants.ROLE_USER));
         return userRepositories.save(user);
     }
 
@@ -59,7 +66,6 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(String id) {
 
     }
-
     @Override
     public boolean isUserExist(String userId) {
         return false;

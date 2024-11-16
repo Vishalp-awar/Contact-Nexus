@@ -38,7 +38,10 @@ public class PageContoller {
         // Return the view name
         return "home";
     }
-
+    @RequestMapping("/")
+    public String defaultPage() {
+        return "redirect:/home";
+    }
 
     @RequestMapping("/about")
     public String aboutPage(){
@@ -49,9 +52,9 @@ public class PageContoller {
         return "services";
     }
 
-    @RequestMapping("/Login")
+    @RequestMapping("/login")
     public String LoginPage(){
-        return "Login";
+        return "login";
     }
 
     @RequestMapping("/Register")
