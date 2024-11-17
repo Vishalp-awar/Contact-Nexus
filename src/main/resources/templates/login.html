@@ -165,6 +165,24 @@
                             Reset
                         </button>
                     </div>
+<!--                    <div class="flex items-center justify-between">-->
+<!--                    <button type="button" class="login-with-google-btn" data-th-href="${'/oauth2/authorization/google'}" >-->
+<!--                        Sign in with Google-->
+<!--                    </button>-->
+<!--                    </div>-->
+
+                    <div
+                            class="social-buttons-container flex justify-center items-center flex-col space-y-4 mt-10"
+                    >
+                        <a
+                                class="px-1 py-2 w-1/2 font-semibold rounded-lg login-with-google-btn text-center"
+                                data-th-href="@{'/oauth2/authorization/google'}"
+                        >
+                            Sign in with Google</a
+                        >
+
+
+                       </div>
                 </form>
             </div>
         </div>
