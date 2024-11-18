@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    this is Dashboard
+   <h1> this is Dashboard</h1>
+    <h1 data-th-text="${loggedinuser.name}"></h1>
+    <h1 data-th-text="${loggedinuser.email}"></h1>
     <a data-th-href="@{'/do-logout'}"></a>
 </body>
 </html>

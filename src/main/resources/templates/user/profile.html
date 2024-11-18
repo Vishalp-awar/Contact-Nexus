@@ -1,11 +1,30 @@
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <title>Document</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    this is my profile-->
+<!--    <h1 data-th-text="${loggedinuser.name}"></h1>-->
+<!--    <h1 data-th-text="${loggedinuser.email}"></h1>-->
+
+<!--</body>-->
+<!--</html>-->
+
 <!doctype html>
-<html lang="en">
+
+<html lang="en" th:replace="~{parent :: base(~{::#content},~{::script})}" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
 </head>
 <body>
-    this is my profile
+<section id="content">
+    <article>THIS is Profile Page</article>
+        <h1 data-th-text="${loggedinuser.name}"></h1>
+        <h1 data-th-text="${loggedinuser.email}"></h1>
+
+    <a data-th-href="@{'/do-logout'}">logout</a>
+</section>
 </body>
 </html>
