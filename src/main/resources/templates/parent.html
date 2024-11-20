@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"
-    th:fragment="base(content,script)"
-    class="Light"
->
+      th:fragment="base(content,script)"
+      class="Light"
+      xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,10 +21,24 @@
 </head>
 <body>
 
-    <div data-th-replace="navbar :: navbar">
+<!--    <div data-th-if="${loggedinuser}">-->
+<!--        <div data-th-replace="~{user/user_navbar :: user-navbar}">-->
 
+<!--        </div>-->
+<!--        <div data-th-unless="${loggedinuser}">-->
+<!--            <div data-th-replace="navbar :: navbar">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div th:if="${loggedinuser}">
+        <div data-th-replace="~{user/user_navbar::user-navbar}"></div>
     </div>
 
+
+<!-- user is not logged : navbar -->
+    <div th:unless="${loggedinuser}">
+        <div data-th-replace="~{navbar :: navbar}"></div>
+    </div>
     <section  data-th-replace="${content}"></section>
 
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>

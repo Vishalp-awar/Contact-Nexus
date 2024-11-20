@@ -202,7 +202,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws
     httpSecurity.formLogin(formLogin -> {
         formLogin.loginPage("/login") // Login page URL
                 .loginProcessingUrl("/authenticate") // Form action URL for processing login
-                .defaultSuccessUrl("/", true) // Redirect to `/user/profile` on success
+                .defaultSuccessUrl("/user/profile", true) // Redirect to `/user/profile` on success
                 .failureUrl("/login?error=true") // Redirect back to login on failure
                 .usernameParameter("email") // Field name for username
                 .passwordParameter("password"); // Field name for password

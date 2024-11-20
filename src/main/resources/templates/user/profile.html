@@ -19,8 +19,11 @@
 <head>
 </head>
 <body>
-<section id="content">
-    <article>THIS is Profile Page</article>
+<section id="content" class="pl-64 pt-20" style="height:1000px">
+    <div th:if="${loggedinuser}">
+        <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+    </div>
+    <article class="text-5x">THIS is Profile Page</article>
         <h1 data-th-text="${loggedinuser.name}"></h1>
         <h1 data-th-text="${loggedinuser.email}"></h1>
 
