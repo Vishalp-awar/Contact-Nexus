@@ -49,7 +49,7 @@ public class ContactForm {
         // resolution
 
 //        @ValidFile(message = "Invalid File")
-      private String contactImage;
+      private MultipartFile contactImage;
 
 //        private String picture;
 }
