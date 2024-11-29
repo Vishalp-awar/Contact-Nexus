@@ -297,7 +297,10 @@
                                     <p class="text-xs text-gray-500">PNG, JPG, GIF up 500*500 size</p>
                                 </div>
                             </div>
+                            <p data-th-if="${#fields.hasErrors('contactImage')}" data-th-errors="*{contactImage}" class="text-sm text-red-600">Invalid contactImage</p>
+
                         </div>
+
 
                         <!-- Checkbox -->
                         <div class="flex items-start">
@@ -311,7 +314,7 @@
 
                         <!-- Add Contact button -->
                         <div class="flex items-center justify-end space-x-3">
-                            <button type="reset" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                            <button type="reset" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
                                 Reset
                             </button>
                             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
