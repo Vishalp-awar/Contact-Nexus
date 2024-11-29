@@ -14,7 +14,6 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +21,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.UUID;
 
 @Controller
 @RequestMapping(value = "/user/contacts")
@@ -64,12 +65,13 @@ public class ContactController {
                     .content("Please Fill All details correct and valid")
                     .type(AlertType.red)
                     .build());
-            return "redirect:/user/contacts/add_contact";
+            return "user/add_contact";
         }
 
 
         String username = Helper.getEmailOfLoggedInUser(authentication);
-        String fileUrl = imageService.uploadImage(contactForm.getContactImage());
+        String filename= UUID.randomUUID().toString();
+        String fileUrl = imageService.uploadImage(contactForm.getContactImage(),filename);
 
 logger.info("file Info",contactForm.getContactImage().getOriginalFilename());
         User user = userService.getUserByEmail(username);
@@ -85,6 +87,7 @@ logger.info("file Info",contactForm.getContactImage().getOriginalFilename());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
         contact.setUser(user);
         contact.setPicture(fileUrl);
+        contact.setCloudinaryImagePublicId(filename);
         contact.setDescription(contactForm.getDescription());
 
     contactService.save(contact);

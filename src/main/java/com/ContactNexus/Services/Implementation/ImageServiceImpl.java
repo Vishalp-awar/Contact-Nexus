@@ -24,12 +24,12 @@ public class ImageServiceImpl implements ImageService {
 
 
     @Override
-    public  String uploadImage(MultipartFile contactImage) {
+    public  String uploadImage(MultipartFile contactImage,String filename) {
 
 
 
 
-        String filename = UUID.randomUUID().toString();
+//        String filename = UUID.randomUUID().toString();
 
         try {
             byte[] data=new byte[contactImage.getInputStream().available()];
@@ -37,7 +37,7 @@ public class ImageServiceImpl implements ImageService {
             contactImage.getInputStream().read(data);
 
             cloudinary.uploader().upload(data, ObjectUtils.asMap(
-                    "public_id",contactImage.getOriginalFilename()
+                    "public_id",filename
             ));
 
             return getUrlFromPublicId(filename);
