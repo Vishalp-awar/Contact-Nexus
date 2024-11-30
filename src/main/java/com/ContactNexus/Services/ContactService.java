@@ -1,6 +1,8 @@
 package com.ContactNexus.Services;
 
 import com.ContactNexus.Entities.Contact;
+import com.ContactNexus.Entities.User;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -24,4 +26,9 @@ public interface ContactService {
 //    search contact
     List<Contact> search(String name,String email,String phoneNumber);
 
+//    get by userid
+     List<Contact> getByUserId(String userId);
+
+    // get contacts by user
+    Page<Contact> getByUser(User user,int page,int size,String sortField,String sortDirection);
 }

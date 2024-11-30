@@ -2,6 +2,8 @@ package com.ContactNexus.Repositories;
 
 import com.ContactNexus.Entities.Contact;
 import com.ContactNexus.Entities.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,10 +16,14 @@ public interface ContactRepositories extends JpaRepository<Contact,String>
 {
 //    find contact by user
 //custom finder method
-    List<Contact> findByUser(User user);
+    Page<Contact> findByUser(User user, Pageable pageable);
 
 //      find by user id
 //custom query method
-//    @Query("SELECT c FROM Contact WHERE c.user.id = :userid")
-//    List<Contact> findByUserId(@Param("userid") String userid);
+@Query("SELECT c FROM Contact c WHERE c.user.id = :userid")
+List<Contact> findByUserId(@Param("userid") String userid);
+    
+//    List<Contact> findByUserId(String userId);
+
+
 }

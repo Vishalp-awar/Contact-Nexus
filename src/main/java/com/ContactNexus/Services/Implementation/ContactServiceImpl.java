@@ -1,10 +1,14 @@
 package com.ContactNexus.Services.Implementation;
 
 import com.ContactNexus.Entities.Contact;
+import com.ContactNexus.Entities.User;
 import com.ContactNexus.Helper.ResourceNotFoundException;
 import com.ContactNexus.Repositories.ContactRepositories;
 import com.ContactNexus.Services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,5 +54,19 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public List<Contact> search(String name, String email, String phoneNumber) {
         return List.of();
+    }
+
+    @Override
+    public List<Contact> getByUserId(String userid) {
+
+    return contactRepositories.findByUserId(userid);
+    }
+
+    @Override
+    public Page<Contact> getByUser(User user,int page,int size,String sortBy, String direction) {
+
+        Sort sort= direction.equals("desc")? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
+        var pageable = PageRequest.of(page,size,sort);
+        return contactRepositories.findByUser(user,pageable);
     }
 }
