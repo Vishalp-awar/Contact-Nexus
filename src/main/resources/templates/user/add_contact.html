@@ -202,14 +202,14 @@
                         This contact will be stored on cloud, and you can directly email them from Contact Nexus. Happy Email.
                     </p>
 
-                    <form class="space-y-6" method="post"
+                    <form class="space-y-6 " method="post"
                           data-th-action="@{'/user/contacts/add_contact'}"
                           data-th-object="${contactForm}"
                           enctype="multipart/form-data">
 
                         <!-- Name -->
                         <div class="space-y-2">
-                            <label for="name" class="block text-sm font-medium text-gray-700">Contact Name</label>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-white">Contact Name</label>
                             <div class="flex">
                 <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                   <i class="fa-regular fa-user"></i>
@@ -221,7 +221,7 @@
 
                         <!-- Email -->
                         <div class="space-y-2">
-                            <label for="email" class="block text-sm font-medium text-gray-700">Contact Email</label>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-white">Contact Email</label>
                             <div class="flex">
                 <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                   <i class="fa-regular fa-envelope"></i>
@@ -233,7 +233,7 @@
 
                         <!-- Phone Number -->
                         <div class="space-y-2">
-                            <label for="phoneNumber" class="block text-sm font-medium text-gray-700">Contact Phone Number</label>
+                            <label for="phoneNumber" class="block text-sm font-medium text-gray-700 dark:text-white">Contact Phone Number</label>
                             <div class="flex">
                 <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                   <i class="fa-solid fa-phone"></i>
@@ -245,14 +245,14 @@
 
                         <!-- Address -->
                         <div class="space-y-2">
-                            <label for="address" class="block text-sm font-medium text-gray-700">Contact Address</label>
+                            <label for="address" class="block text-sm font-medium text-gray-700 dark:text-white">Contact Address</label>
                             <textarea data-th-field="*{address}" id="address" rows="3" class="shadow-sm block w-full focus:ring-blue-500 focus:border-blue-500 sm:text-sm border-gray-300 rounded-md" placeholder="Write your Address here..."></textarea>
                             <p data-th-if="${#fields.hasErrors('address')}" data-th-errors="*{address}" class="text-sm text-red-600">Invalid address</p>
                         </div>
 
                         <!-- Description -->
                         <div class="space-y-2">
-                            <label for="description" class="block text-sm font-medium text-gray-700">Contact Description</label>
+                            <label for="description" class="block text-sm font-medium text-gray-700 dark:text-white">Contact Description</label>
                             <textarea data-th-field="*{description}" id="description" rows="3" class="shadow-sm block w-full focus:ring-blue-500 focus:border-blue-500 sm:text-sm border-gray-300 rounded-md" placeholder="Write about your contact..."></textarea>
                             <p data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}" class="text-sm text-red-600">Invalid description</p>
                         </div>
@@ -260,7 +260,7 @@
                         <!-- WebLinks -->
                         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                             <div class="space-y-2">
-                                <label for="websiteLink" class="block text-sm font-medium text-gray-700">Website</label>
+                                <label for="websiteLink" class="block text-sm font-medium text-gray-700 dark:text-white">Website</label>
                                 <div class="flex">
                   <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                     <i class="fa-solid fa-globe"></i>
@@ -269,7 +269,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <label for="linkedInLink" class="block text-sm font-medium text-gray-700">LinkedIn</label>
+                                <label for="linkedInLink" class="block text-sm font-medium text-gray-700 dark:text-white">LinkedIn</label>
                                 <div class="flex">
                   <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                     <i class="fa-brands fa-linkedin"></i>
@@ -281,7 +281,7 @@
 
                         <!-- Profile photo -->
                         <div class="space-y-2">
-                            <label for="file_input" class="block text-sm font-medium text-gray-700">Contact Image</label>
+                            <label for="file_input" class="block text-sm font-medium text-gray-700 dark:text-white">Contact Image</label>
                             <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                 <div class="space-y-1 text-center">
                                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
@@ -308,7 +308,7 @@
                                 <input data-th-field="*{favorite}" id="favorite" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
                             </div>
                             <div class="ml-3 text-sm">
-                                <label for="favorite" class="font-medium text-gray-700">Is this Contact your favorite one?</label>
+                                <label for="favorite" class="font-medium text-gray-700 dark:text-white">Is this Contact your favorite one?</label>
                             </div>
                         </div>
 

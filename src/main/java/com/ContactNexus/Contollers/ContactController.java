@@ -44,7 +44,7 @@ public class ContactController {
     @RequestMapping("/contact")
     public String contactPage(
             @RequestParam(value="page",defaultValue = "0") int page,
-            @RequestParam(value="size",defaultValue = "10") int size,
+            @RequestParam(value="size",defaultValue = "3") int size,
             @RequestParam(value="sortBy",defaultValue = "name") String sortBy,
             @RequestParam(value="direction",defaultValue = "asc") String direction,
             Model model,Authentication authentication){
