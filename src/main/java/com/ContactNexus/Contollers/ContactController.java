@@ -4,6 +4,7 @@ package com.ContactNexus.Contollers;
 import com.ContactNexus.Entities.Contact;
 import com.ContactNexus.Entities.User;
 import com.ContactNexus.Forms.ContactForm;
+import com.ContactNexus.Forms.ContactSearchForm;
 import com.ContactNexus.Helper.Alert;
 import com.ContactNexus.Helper.AlertType;
 import com.ContactNexus.Helper.Helper;
@@ -19,10 +20,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.UUID;
@@ -110,5 +109,85 @@ logger.info("file Info",contactForm.getContactImage().getOriginalFilename());
         return "redirect:/user/contacts/add_contact";
     }
 
+    @RequestMapping("/search")
+    public String searchHandler(
+
+            @ModelAttribute ContactSearchForm contactSearchForm,
+            @RequestParam(value = "size", defaultValue =  "4") int size,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "sortBy", defaultValue = "name") String sortBy,
+            @RequestParam(value = "direction", defaultValue = "asc") String direction,
+            Model model,
+            Authentication authentication) {
+
+        logger.info("field {} keyword {}", contactSearchForm.getField(), contactSearchForm.getValue());
+
+        var user = userService.getUserByEmail(Helper.getEmailOfLoggedInUser(authentication));
+
+        Page<Contact> pageContact = null;
+        if (contactSearchForm.getField().equalsIgnoreCase("name")) {
+            pageContact = contactService.searchByName(contactSearchForm.getValue(), size, page, sortBy, direction,
+                    user);
+        } else if (contactSearchForm.getField().equalsIgnoreCase("email")) {
+            pageContact = contactService.searchByEmail(contactSearchForm.getValue(), size, page, sortBy, direction,
+                    user);
+        } else if (contactSearchForm.getField().equalsIgnoreCase("phone")) {
+            pageContact = contactService.searchByPhoneNumber(contactSearchForm.getValue(), size, page, sortBy,
+                    direction, user);
+        }
+
+        logger.info("pageContact {}", pageContact);
+
+        model.addAttribute("contactSearchForm", contactSearchForm);
+
+        model.addAttribute("pageContact", pageContact);
+
+        model.addAttribute("pageSize", "4");
+
+        return "user/search";
+    }
+
+    // detete contact
+    @RequestMapping("/delete/{contactId}")
+    public String deleteContact(
+            @PathVariable("contactId") String contactId,
+            HttpSession session) {
+        contactService.delete(contactId);
+        logger.info("contactId {} deleted", contactId);
+
+        session.setAttribute("message",
+                Alert.builder()
+                        .content("Contact is Deleted successfully !! ")
+                        .type(AlertType.green)
+                        .build()
+
+        );
+
+        return "redirect:/user/contacts";
+    }
+
+    // update contact form view
+    @GetMapping("/view/{contactId}")
+    public String updateContactFormView(
+            @PathVariable("contactId") String contactId,
+            Model model) {
+
+        var contact = contactService.getById(contactId);
+        ContactForm contactForm = new ContactForm();
+        contactForm.setName(contact.getName());
+        contactForm.setEmail(contact.getEmail());
+        contactForm.setPhoneNumber(contact.getPhoneNumber());
+        contactForm.setAddress(contact.getAddress());
+        contactForm.setDescription(contact.getDescription());
+        contactForm.setFavorite(contact.isFavorite());
+        contactForm.setWebsiteLink(contact.getWebsiteLink());
+        contactForm.setLinkedInLink(contact.getLinkedInLink());
+//        contactForm.setContactImage(MultipartFile(contact.getPicture().toString()));
+
+        model.addAttribute("contactForm", contactForm);
+        model.addAttribute("contactId", contactId);
+
+        return "user/update_contact_view";
+    }
 
 }
