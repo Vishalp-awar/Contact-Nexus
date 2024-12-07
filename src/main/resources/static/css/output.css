@@ -2503,3 +2503,36 @@ video {
     color: rgb(59 130 246 / var(--tw-text-opacity));
   }
 }
+
+/* Confirm Button Style */
+.btn-confirm {
+  background-color: #28a745; /* Green */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 10px; /* Add space between buttons */
+}
+
+.btn-confirm:hover {
+  background-color: #218838; /* Darker green */
+}
+
+/* Cancel Button Style */
+.btn-cancel {
+  background-color: #dc3545; /* Red */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background-color: #c82333; /* Darker red */
+}
+
+/* */

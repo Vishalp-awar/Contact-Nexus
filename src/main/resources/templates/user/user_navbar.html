@@ -39,7 +39,7 @@
 <!--        </div>-->
 <!--    </nav>-->
 
-<nav
+<nav xmlns:th="http://www.w3.org/1999/xhtml"
         th:fragment="user-navbar"
         class="bg-white border-gray-900 shadow-sm dark:bg-gray-900 sm:pl-64 fixed w-full top-0 left-0 right-0"
 >
@@ -149,7 +149,7 @@
                     <a
                             data-th-href="@{'/home'}"
                             class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-                            aria-current="page"
+
                     >Home</a
                     >
                 </li>

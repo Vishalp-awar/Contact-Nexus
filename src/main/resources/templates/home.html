@@ -1,12 +1,277 @@
-<!doctype html>
 
-<html lang="en" th:replace="~{parent :: base(~{::#content},~{::script})}" xmlns:th="http://www.w3.org/1999/xhtml">
+<!--&lt;!&ndash;<!doctype html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en" th:replace="~{parent :: base(~{::#content}, ~{::#script})}" xmlns:th="http://www.w3.org/1999/xhtml">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1.0">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Contact Nexus - Streamline Your Connections</title>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body > &lt;!&ndash; Add top padding to account for fixed navbar &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<section id="content" class=" min-h-screen flex flex-col pt-16">&ndash;&gt;-->
+<!--&lt;!&ndash;</section>&ndash;&gt;-->
+<!--&lt;!&ndash;<div id="script">&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+<!--&lt;!&ndash;<!doctype html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en" th:replace="~{parent :: base(~{::#content}, ~{::#script})}" xmlns:th="http://www.w3.org/1999/xhtml">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1.0">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Contact Nexus - Streamline Your Connections</title>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<section id="content" class="min-h-screen flex flex-col pt-16 bg-gradient-to-b from-blue-100 to-white">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="container mx-auto px-4 py-12">&ndash;&gt;-->
+<!--&lt;!&ndash;        <header class="text-center mb-12">&ndash;&gt;-->
+<!--&lt;!&ndash;            <h1 class="text-4xl md:text-5xl font-bold text-blue-800 mb-4">Welcome to Contact Nexus</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-xl text-gray-600">Streamline Your Connections, Amplify Your Network</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        </header>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="grid md:grid-cols-2 gap-12 items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="space-y-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                <h2 class="text-3xl font-semibold text-blue-700">Simplify Your Contact Management</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p class="text-lg text-gray-700">Contact Nexus is your all-in-one solution for organizing, managing, and leveraging your professional network. Say goodbye to scattered contact information and hello to effortless networking.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <ul class="space-y-2">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li class="flex items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>&ndash;&gt;-->
+<!--&lt;!&ndash;                        Centralize all your contacts in one place&ndash;&gt;-->
+<!--&lt;!&ndash;                    </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li class="flex items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>&ndash;&gt;-->
+<!--&lt;!&ndash;                        Easily categorize and tag your connections&ndash;&gt;-->
+<!--&lt;!&ndash;                    </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <li class="flex items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>&ndash;&gt;-->
+<!--&lt;!&ndash;                        Set reminders for follow-ups and important dates&ndash;&gt;-->
+<!--&lt;!&ndash;                    </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="pt-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a href="#" class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">Get Started for Free</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="hidden md:block">&ndash;&gt;-->
+<!--&lt;!&ndash;                <img src="/placeholder.svg?height=400&width=400" alt="Contact Nexus App Interface" class="rounded-lg shadow-xl"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="mt-20">&ndash;&gt;-->
+<!--&lt;!&ndash;            <h2 class="text-3xl font-semibold text-blue-700 text-center mb-8">Why Choose Contact Nexus?</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="grid md:grid-cols-3 gap-8">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="bg-white p-6 rounded-lg shadow-md">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <svg class="w-12 h-12 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h3 class="text-xl font-semibold mb-2">Intuitive Organization</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="text-gray-600">Effortlessly organize your contacts with custom tags, groups, and smart filters.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="bg-white p-6 rounded-lg shadow-md">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <svg class="w-12 h-12 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h3 class="text-xl font-semibold mb-2">Smart Reminders</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="text-gray-600">Never miss an important follow-up or birthday with our intelligent reminder system.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="bg-white p-6 rounded-lg shadow-md">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <svg class="w-12 h-12 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h3 class="text-xl font-semibold mb-2">Detailed Insights</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="text-gray-600">Gain valuable insights into your network with advanced analytics and reporting tools.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="mt-20 text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;            <h2 class="text-3xl font-semibold text-blue-700 mb-4">Ready to Transform Your Networking?</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-xl text-gray-600 mb-8">Join thousands of professionals who have already streamlined their connections with Contact Nexus.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#" class="inline-block bg-blue-600 text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-700 transition duration-300 text-lg">Start Your Free Trial</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</section>&ndash;&gt;-->
+<!--&lt;!&ndash;<div id="script">&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+<!--<!doctype html>-->
+<!--<html lang="en" th:replace="~{parent :: base(~{::#content}, ~{::#script})}" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Contact Nexus - Streamline Your Connections</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<section id="content" class="min-h-screen flex flex-col pt-16 bg-gradient-to-b from-blue-100 via-blue-50 to-white">-->
+<!--    <div class="container mx-auto px-4 py-12 max-w-6xl">-->
+<!--        &lt;!&ndash; Header &ndash;&gt;-->
+<!--        <header class="text-center mb-16">-->
+<!--            <h1 class="text-5xl md:text-6xl font-bold text-blue-900 mb-6">Welcome to Contact Nexus</h1>-->
+<!--            <p class="text-2xl text-blue-700 max-w-3xl mx-auto">Revolutionize Your Network Management</p>-->
+<!--        </header>-->
+
+<!--        &lt;!&ndash; Intro Section &ndash;&gt;-->
+<!--        <div class="grid md:grid-cols-2 gap-12 items-center mb-20 pt-5">-->
+<!--            <div class="space-y-6">-->
+<!--                <h2 class="text-4xl font-semibold text-blue-800">Elevate Your Networking Game</h2>-->
+<!--                <p class="text-xl text-blue-700 leading-relaxed">Contact Nexus is the cutting-edge solution for professionals who understand the power of connections. Our platform doesn't just store contacts; it transforms how you build and nurture your network.</p>-->
+<!--                <ul class="space-y-4">-->
+<!--                    <li class="flex items-center text-blue-700 text-lg">-->
+<!--                        <svg class="w-6 h-6 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>-->
+<!--                        AI-powered relationship insights-->
+<!--                    </li>-->
+<!--                    <li class="flex items-center text-blue-700 text-lg">-->
+<!--                        <svg class="w-6 h-6 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>-->
+<!--                        Seamless integration with your workflow-->
+<!--                    </li>-->
+<!--                    <li class="flex items-center text-blue-700 text-lg">-->
+<!--                        <svg class="w-6 h-6 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/1999/xhtml"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>-->
+<!--                        Advanced networking analytics-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                <div class="pt-6">-->
+<!--                    <a href="#" class="inline-block bg-blue-600 text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-700 transition duration-300 text-lg shadow-lg">Start Networking Smarter</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="hidden md:block">-->
+<!--                <img src="/placeholder.svg?height=500&width=500" alt="Contact Nexus Dashboard" class="rounded-lg shadow-2xl w-full" />-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Features Section &ndash;&gt;-->
+<!--        <div class="mb-20 pt-5">-->
+<!--            <h2 class="text-4xl font-semibold text-blue-800 text-center mb-12">Why Contact Nexus Stands Out</h2>-->
+<!--            <div class="grid md:grid-cols-3 gap-32">-->
+<!--                <div class="bg-white p-8 rounded-lg shadow-xl flex flex-col items-center text-center">-->
+<!--                    <svg class="w-20 h-20 text-blue-500 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>-->
+<!--                    <h3 class="text-2xl font-semibold mb-4 text-blue-700">Intelligent Insights</h3>-->
+<!--                    <p class="text-blue-600">Our AI analyzes your interactions and provides actionable insights to strengthen your relationships.</p>-->
+<!--                </div>-->
+<!--                <div class="bg-white p-8 rounded-lg shadow-xl flex flex-col items-center text-center">-->
+<!--                    <svg class="w-20 h-20 text-blue-500 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>-->
+<!--                    <h3 class="text-2xl font-semibold mb-4 text-blue-700">Seamless Integration</h3>-->
+<!--                    <p class="text-blue-600">Connect with your favorite tools and platforms for a unified networking experience.</p>-->
+<!--                </div>-->
+<!--                <div class="bg-white p-8 rounded-lg shadow-xl flex flex-col items-center text-center">-->
+<!--                    <svg class="w-20 h-20 text-blue-500 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>-->
+<!--                    <h3 class="text-2xl font-semibold mb-4 text-blue-700">Privacy-First Approach</h3>-->
+<!--                    <p class="text-blue-600">Your data is encrypted and protected. We prioritize your privacy and security above all.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Call to Action &ndash;&gt;-->
+<!--        <div class="text-center mb-16 pt-5">-->
+<!--            <h2 class="text-4xl font-semibold text-blue-800 mb-8">Ready to Revolutionize Your Networking?</h2>-->
+<!--            <p class="text-2xl text-blue-700 mb-10 max-w-3xl mx-auto">Join the ranks of successful professionals who have elevated their networking game with Contact Nexus.</p>-->
+<!--            <a href="#" class="inline-block bg-blue-600 text-white font-semibold px-12 py-5 rounded-lg hover:bg-blue-700 transition duration-300 text-xl shadow-lg">Start Your Free Trial Today</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!--<div id="script">-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!doctype html>
+<html lang="en" th:replace="~{parent :: base(~{::#content}, ~{::#script})}" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Nexus - Streamline Your Connections</title>
 </head>
 <body>
-<section id="content">
-    <article>THIS is Home Page</article>
-    <a data-th-href="@{'/do-logout'}">logout</a>
+<section id="content" class=" flex flex-col bg-gradient-to-b from-blue-100 via-blue-50 to-white">
+
+    <header class="text-center mb-16 bg-cover bg-center h-[500px]"
+            style="background-image: url('https://images.squarespace-cdn.com/content/v1/62043aab31c1ab3f5380b4d7/f20dd3bb-1fdf-4b19-a97a-768a2e5759e9/AdobeStock_485174466.jpg?format=1500w'); background-size: cover; background-position: center; height: 550px;">
+        <div class="flex flex-col justify-center items-center h-full bg-black bg-opacity-50">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Welcome to Contact Nexus</h1>
+            <p class="text-3xl  font-weight: 600; text-white max-w-3xl mx-auto">Revolutionize Your Network Management</p>
+        </div>
+    </header>
+
+    <div class="w-full">
+
+        <!-- Intro Section -->
+        <!-- Intro Section -->
+        <div class="grid md:grid-cols-2 items-center mb-20  bg-cover bg-center w-full h-[550px]   "
+             style="background-image: url('https://images.unsplash.com/photo-1733428450578-b497f84ee54b?q=80&w=1510&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');background-size: cover; background-position: center; height: 550px;">
+            <div class="space-y-6 p-6 text-white" style="margin-left: 7rem;">
+                <h2 class="text-4xl font-semibold text-white ">Elevate Your Networking Game</h2>
+                <p class="text-xl text-white  leading-relaxed">Contact Nexus is the cutting-edge solution for professionals who understand the power of connections. Our platform doesn't just store contacts; it transforms how you build and nurture your network.</p>
+                <ul class="space-y-4">
+                    <li class="flex items-center text-white text-lg">
+                        <svg class="w-6 h-6 text-white  mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        AI-powered relationship insights
+                    </li>
+                    <li class="flex items-center text-white  text-lg">
+                        <svg class="w-6 h-6 text-white  mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        Seamless integration with your workflow
+                    </li>
+                    <li class="flex items-center text-white  text-lg">
+                        <svg class="w-6 h-6 text-white  mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        Advanced networking analytics
+                    </li>
+                </ul>
+                <div class="pt-6">
+                    <a href="/login" class="inline-block bg-blue-600 text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-700 transition duration-300 text-lg shadow-lg">Start Networking Smarter</a>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <img src="/placeholder.svg?height=500&width=500" alt="Contact Nexus Dashboard" class="rounded-lg shadow-2xl w-full" />
+            </div>
+        </div>
+
+        <!-- Features Section with Enhanced Card Design -->
+        <div class="mb-20 pt-10 bg-gray-50">
+            <h2 class="text-4xl font-bold text-blue-800 text-center p-5">
+                Why Contact Nexus Stands Out
+            </h2>
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-6 md:px-12">
+                <!-- Card 1 -->
+                <div class="bg-gradient-to-r from-blue-500 to-teal-500 p-8 rounded-xl shadow-lg hover:scale-105 transform transition-all duration-300 flex flex-col items-center text-center">
+                    <svg class="w-24 h-24 text-white mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Intelligent Insights</h3>
+                    <p class="text-white opacity-80">Our AI analyzes your interactions and provides actionable insights to strengthen your relationships.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-gradient-to-r from-red-500 to-black-500 p-8 rounded-xl shadow-lg hover:scale-105 transform transition-all duration-300 flex flex-col items-center text-center">
+                    <svg class="w-24 h-24 text-white mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/1999/xhtml">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Privacy-First Approach</h3>
+                    <p class="text-white opacity-80">Your data is encrypted and protected. We prioritize your privacy and security above all.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-8 rounded-xl shadow-lg hover:scale-105 transform transition-all duration-300 flex flex-col items-center text-center">
+                    <svg class="w-24 h-24 text-white mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/1999/xhtml">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Privacy-First Approach</h3>
+                    <p class="text-white opacity-80">Your data is encrypted and protected. We prioritize your privacy and security above all.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Call to Action -->
+        <div class="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 text-center py-16 mb-16 rounded-lg ">
+            <h2 class="text-5xl font-bold text-white mb-6">Revolutionize Your Networking</h2>
+            <p class="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+                Join thousands of professionals who have transformed their connections with Contact Nexus. It's your time to thrive!
+            </p>
+            <a href="/login"
+               class="w-auto inline-block bg-blue-100 text-blue-700 font-bold px-12 py-4 rounded-full hover:bg-blue-100 transition duration-300 text-lg shadow-md">
+                Start Now
+            </a>
+        </div>
+    </div>
 </section>
+<div id="script">
+</div>
 </body>
 </html>

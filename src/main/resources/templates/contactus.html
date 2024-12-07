@@ -1,11 +1,16 @@
 <!doctype html>
 
-<html lang="en" th:replace="~{parent :: base(~{::#content},~{::script})}">
+<html lang="en" th:replace="~{parent :: base(~{::#content},~{::script})}" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 </head>
 <body>
 <section id="content">
     <article>THIS is ContactUs Page</article>
 </section>
+<div id="script">
+    <script>
+        console.log('Custom script for the login page');
+    </script>
+</div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 console.log("contactmodal.js");
 
 const viewContactModal = document.getElementById('view_contact_modal');
-
+const baseUrl="http://localhost:8081"
  if (!viewContactModal) {
       console.error("view_contact_modal element not found!");
     }
@@ -55,7 +55,7 @@ async function loadContactData(id) {
   //function call to load data
 //  console.log(id);
   try {
-    const data = await (await fetch(`http://localhost:8081/api/contacts/${id}`)).json();
+    const data = await (await fetch(`${baseUrl}/api/contacts/${id}`)).json();
     console.log(data);
     document.querySelector("#contact_name").innerHTML = data.name;
         document.querySelector("#contact_email").innerHTML = data.email;
@@ -81,3 +81,54 @@ async function loadContactData(id) {
     console.log("Error: ", error);
   }
 }
+
+//delete contact
+
+//async function deleteContact(id){
+//
+//    Swal.fire({
+//      title: "Do you want to Delete the Contact?",
+//      icon:"warning",
+//      showCancelButton: true,
+//      confirmButtonText: "Delete",
+//      denyButtonText: `Don't Delete`
+//    }).then((result) => {
+//      /* Read more about isConfirmed, isDenied below */
+//      if (result.isConfirmed) {
+//        Swal.fire("Saved!", "", "success");
+//
+//        const url = `http://${baseUrl}/user/contacts/delete/`+id;
+//        window.location.replace(url)
+//
+//      } else if (result.isDenied) {
+//        Swal.fire("Changes are not saved", "", "info");
+//      }
+//    });
+//
+//}
+async function deleteContact(id) {
+  Swal.fire({
+    title: "Do you want to Delete the Contact?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Delete",
+    denyButtonText: `Don't Delete`,
+    customClass: {
+      confirmButton: 'btn-confirm', // Custom class for the confirm button
+      cancelButton: 'btn-cancel',  // Custom class for the cancel button
+    },
+    buttonsStyling: false, // Disable default button styling to apply your custom styles
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire("Deleted Successfull    y!", "", "success");
+
+      // Ensure no duplicate `http://`
+      const url = `${baseUrl}/user/contacts/delete/${id}`;
+      window.location.replace(url); // Redirects to the corrected URL
+    } else if (result.isDenied) {
+      Swal.fire("Changes are not saved", "", "info");
+    }
+  });
+}
+//update form view
+

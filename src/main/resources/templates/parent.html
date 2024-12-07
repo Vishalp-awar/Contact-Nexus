@@ -10,6 +10,7 @@
     <!--   link for flowbite compoenets-->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--  link for tailwind  -->
     <link rel="stylesheet" data-th-href="@{/css/output.css}">
 
@@ -41,8 +42,19 @@
     </div>
     <section  data-th-replace="${content}"></section>
 
+    <div data-th-replace="~{footer::footer}"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script data-th-src="@{'/css/js/script.js'}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true,
+    });
+</script>
 <th:block data-th-replace="${script}"></th:block>
 </body>
 

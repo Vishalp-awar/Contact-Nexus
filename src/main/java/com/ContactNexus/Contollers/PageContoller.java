@@ -39,7 +39,9 @@ public class PageContoller {
         return "home";
     }
     @RequestMapping("/")
-    public String defaultPage() {
+    public String defaultPage(Model model) {
+        model.addAttribute("script", "yourScriptFragment"); // Replace "yourScriptFragment" with the actual fragment name
+
         return "redirect:/home";
     }
 

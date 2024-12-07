@@ -54,6 +54,7 @@ public class ContactController {
 
 //        logger.info("contacts" ,pageContact);
         model.addAttribute("pageContact",pageContact);
+        model.addAttribute("contactSearchForm", new ContactSearchForm());
         return "user/contact";
 
     }
@@ -85,8 +86,6 @@ public class ContactController {
 
 
         String username = Helper.getEmailOfLoggedInUser(authentication);
-        String filename= UUID.randomUUID().toString();
-        String fileUrl = imageService.uploadImage(contactForm.getContactImage(),filename);
 
 logger.info("file Info",contactForm.getContactImage().getOriginalFilename());
         User user = userService.getUserByEmail(username);
@@ -101,9 +100,17 @@ logger.info("file Info",contactForm.getContactImage().getOriginalFilename());
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
         contact.setUser(user);
-        contact.setPicture(fileUrl);
-        contact.setCloudinaryImagePublicId(filename);
         contact.setDescription(contactForm.getDescription());
+
+
+        if(contactForm.getContactImage() != null && !contactForm.getContactImage().isEmpty()){
+            String filename= UUID.randomUUID().toString();
+            String fileUrl = imageService.uploadImage(contactForm.getContactImage(),filename);
+            contact.setPicture(fileUrl);
+            contact.setCloudinaryImagePublicId(filename);
+
+
+        }
 
     contactService.save(contact);
         return "redirect:/user/contacts/add_contact";
@@ -163,7 +170,7 @@ logger.info("file Info",contactForm.getContactImage().getOriginalFilename());
 
         );
 
-        return "redirect:/user/contacts";
+        return "redirect:/user/contacts/contact ";
     }
 
     // update contact form view
@@ -183,11 +190,52 @@ logger.info("file Info",contactForm.getContactImage().getOriginalFilename());
         contactForm.setWebsiteLink(contact.getWebsiteLink());
         contactForm.setLinkedInLink(contact.getLinkedInLink());
 //        contactForm.setContactImage(MultipartFile(contact.getPicture().toString()));
-
+        contactForm.setPicture(contact.getPicture());
         model.addAttribute("contactForm", contactForm);
         model.addAttribute("contactId", contactId);
 
         return "user/update_contact_view";
     }
 
+    @RequestMapping(value = "/update/{contactId}",method = RequestMethod.POST)
+    public String updateContact(@PathVariable String contactId,Model model,
+                                @Valid @ModelAttribute ContactForm contactForm,
+                                BindingResult bindingResult){
+
+        if(bindingResult.hasErrors()){
+
+            return "/user/update_contact_view";
+        }
+    //        update contact
+
+            var con = contactService.getById(contactId);
+            con.setId(contactId);
+            con.setName(contactForm.getName());
+            con.setEmail(contactForm.getEmail());
+            con.setAddress(contactForm.getAddress());
+            con.setDescription(contactForm.getDescription());
+            con.setPhoneNumber(contactForm.getPhoneNumber());
+           con.setFavorite(contactForm.isFavorite());
+            con.setWebsiteLink(contactForm.getWebsiteLink());
+            con.setLinkedInLink(contactForm.getLinkedInLink());
+
+//            process image
+                if(contactForm.getContactImage() != null  && !contactForm.getContactImage().isEmpty()){
+                    String filename = UUID.randomUUID().toString();
+                    String imageUrl = imageService.uploadImage(contactForm.getContactImage(),filename);
+                    con.setCloudinaryImagePublicId(filename);
+                    con.setPicture(imageUrl);
+                    contactForm.setPicture(imageUrl);
+                    con.setPicture(contactForm.getPicture());
+
+                }
+
+
+            var updatedform=contactService.update(con);
+
+
+            model.addAttribute("message",Alert.builder().content("Contact Updated Successfully").type(AlertType.green));
+
+            return "redirect:/user/contacts/view/"+contactId;
+    }
 }
